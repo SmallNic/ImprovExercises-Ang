@@ -46,8 +46,7 @@ export class AuthDialogComponent implements OnInit {
     this.modalActions.emit({ action:"modal", params:['close'] });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   //Helps us display the login/register forms conditionally
   isLoginMode(){ return this.authMode == 'login' }
