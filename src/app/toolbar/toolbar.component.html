@@ -2,8 +2,8 @@
   <nav role="navigation">
 
     <div class="nav-wrapper blue">
-      <a [routerLink]="['']" id="logo-container" class="brand-logo">Rails & Angular Auth</a>
-      <ul class="right hide-on-med-and-down">
+      <a [routerLink]="['']" id="logo-container" class="brand-logo center">Improv Exercises</a>
+      <ul class="right">
         <li *ngIf="!tokenAuthService.userSignedIn()">
           <a (click)="presentAuthDialog()">Login</a>
         </li>

@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Warmup?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor='let exercise of exercises'>
+      <td>{{exercise.name}}</td>
+      <td>{{exercise.description}}</td>
+      <td>{{exercise.warmup}}</td>
+    </tr>
+  </tbody>
+</table>

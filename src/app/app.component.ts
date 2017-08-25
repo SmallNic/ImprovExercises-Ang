@@ -4,12 +4,15 @@ import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 
 //Import the environment configuration
-import { environment } from "../environments/environment";
+import { environment } from '../environments/environment';
+
+import { ExerciseService } from './exercises/exercise.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  providers: [ExerciseService]
 })
 export class AppComponent {
   title = 'app works!';
