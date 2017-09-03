@@ -15,6 +15,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 
 import { Angular2TokenService } from 'angular2-token';
 import { ExerciseListComponent } from './exercises/exercise-list.component';
+import { AddExerciseComponent } from './exercises/add-exercise.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ExerciseListComponent } from './exercises/exercise-list.component';
     AuthDialogComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ExerciseListComponent
+    ExerciseListComponent,
+    AddExerciseComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ import { ExerciseService } from './exercises/exercise.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass'],
+  styleUrls: ['./app.component.scss'],
   providers: [ExerciseService]
 })
 export class AppComponent {

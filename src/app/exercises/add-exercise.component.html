@@ -1,0 +1,52 @@
+<div class="text-align-center last-added-exercise" *ngIf="lastAddedExercise">
+  <h3 class="">{{lastAddedExercise.name}} successfully added!</h3>
+</div>
+
+<form (ngSubmit)="submitExercise()">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="row">
+        <div class="col s12">
+          <label for="exercise_name">Exercise Name</label>
+          <input id="exercise_name" type="text" class="validate" [(ngModel)]="exercise.name" name="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <label for="exercise_description">Exercise Description:</label>
+          <textarea id="exercise_description" class="materialize-textarea" data-length="120" [(ngModel)]="exercise.description" name="description"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <input type="checkbox" class="filled-in" id="filled-in-box" name="warmup" [(ngModel)]="exercise.warmup">
+          <label for="filled-in-box">Warmup?</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Add</button>
+  </div>
+</form>
+
+<!-- create_table "alternate_names", force: :cascade do |t|
+t.string "name"
+t.integer "exercise_id"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
+t.index ["exercise_id"], name: "index_alternate_names_on_exercise_id"
+end
+
+create_table "exercises", force: :cascade do |t|
+t.boolean "warmup"
+t.string "name"
+t.text "description"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
+end
+
+create_table "tags", force: :cascade do |t|
+t.string "name"
+t.integer "exercise_id"
+t.datetime "created_at", null: false
+t.datetime "updated_at", null: false
+t.index ["exercise_id"], name: "index_tags_on_exercise_id" -->
