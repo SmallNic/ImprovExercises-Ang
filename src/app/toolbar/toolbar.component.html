@@ -1,25 +1,53 @@
-<div class="navbar-fixed">
-  <nav role="navigation">
+<nav role="navigation">
 
-    <div class="nav-wrapper blue">
-      <a [routerLink]="['']" id="logo-container" class="brand-logo center">Improv Exercises</a>
-      <ul class="right">
-        <li *ngIf="!tokenAuthService.userSignedIn()">
-          <a (click)="presentAuthDialog()">Login</a>
-        </li>
-        <li *ngIf="!tokenAuthService.userSignedIn()">
-          <a (click)="presentAuthDialog('register')">Register</a>
-        </li>
-        <li *ngIf="tokenAuthService.userSignedIn()">
-          <a [routerLink]="['/profile']">Profile</a>
-        </li>
-        <li *ngIf="tokenAuthService.userSignedIn()">
-          <a (click)="tokenAuthService.signOut()">Logout</a>
-        </li>
-      </ul>
-    </div><!-- /nav-wrapper blue -->
+  <div class="nav-wrapper blue">
+    <ul class="left hide-on-med-and-down">
+      <li *ngIf="this.pageTitle == 'All Exercises'">
+        <a [routerLink]="['/add-exercise']">Add Exercise</a>
+      </li>
+      <li *ngIf="this.pageTitle == 'Add Exercise'">
+        <a [routerLink]="['/exercises']">All Exercises</a>
+      </li>
+    </ul>
+    <a [routerLink]="['']" id="logo-container" class="brand-logo center">Improv Exercises</a>
+    <a href="#" data-activates="hamburger-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li *ngIf="!tokenAuthService.userSignedIn()">
+        <a (click)="presentAuthDialog()">Login</a>
+      </li>
+      <li *ngIf="!tokenAuthService.userSignedIn()">
+        <a (click)="presentAuthDialog('register')">Register</a>
+      </li>
+      <li *ngIf="tokenAuthService.userSignedIn()">
+        <a [routerLink]="['/profile']">Profile</a>
+      </li>
+      <li *ngIf="tokenAuthService.userSignedIn()">
+        <a (click)="tokenAuthService.signOut()">Logout</a>
+      </li>
+    </ul>
+    <ul class="side-nav" id="hamburger-menu">
+      <li *ngIf="!tokenAuthService.userSignedIn()">
+        <a (click)="presentAuthDialog()">Login</a>
+      </li>
+      <li *ngIf="!tokenAuthService.userSignedIn()">
+        <a (click)="presentAuthDialog('register')">Register</a>
+      </li>
+      <li *ngIf="tokenAuthService.userSignedIn()">
+        <a [routerLink]="['/profile']">Profile</a>
+      </li>
+      <li *ngIf="tokenAuthService.userSignedIn()">
+        <a (click)="tokenAuthService.signOut()">Logout</a>
+      </li>
+      <li *ngIf="this.pageTitle == 'All Exercises'">
+        <a [routerLink]="['/add-exercise']">Add Exercise</a>
+      </li>
+      <li *ngIf="this.pageTitle == 'Add Exercise'">
+        <a [routerLink]="['/exercises']">All Exercises</a>
+      </li>
 
-  </nav>
-</div><!-- /navbar-fixed -->
+    </ul>
+  </div><!-- /nav-wrapper blue -->
+
+</nav>
 
 <app-auth-dialog #authDialog></app-auth-dialog>

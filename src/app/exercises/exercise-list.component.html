@@ -1,6 +1,7 @@
 <table class="bordered">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Description</th>
       <th>Warmup?</th>
@@ -9,6 +10,7 @@
 
   <tbody>
     <tr *ngFor='let exercise of exercises'>
+      <td><i class="material-icons delete-forever" (click)="deleteExercise(exercise.id)">delete_forever</i></td>
       <td>{{exercise.name}}</td>
       <td>{{exercise.description}}</td>
       <td>{{exercise.warmup}}</td>

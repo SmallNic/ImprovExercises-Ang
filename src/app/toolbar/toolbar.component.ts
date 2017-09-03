@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { Angular2TokenService } from 'angular2-token';
+import { PageTitleService } from '../services/page-title.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,15 +12,24 @@ import { Angular2TokenService } from 'angular2-token';
 
 export class ToolbarComponent implements OnInit {
 
+  pageTitle:string;
+  subscription:Subscription;
+
   // ViewChild decorator.
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
 
   // Inject Angular2TokenService into ToolbarComponent
   // Now we can use it on our toolbar template to hide/show actions conditionally
   // We get the userSignedIn() method automatically now
-  constructor( public tokenAuthService:Angular2TokenService) { }
+  constructor(
+    public tokenAuthService:Angular2TokenService,
+    private _pageTitleService:PageTitleService ) {
+      this.subscription = this._pageTitleService.getPageTitle().subscribe(pageTitle => { this.pageTitle = pageTitle; });
+     }
 
   ngOnInit() {
+    console.log('callGetPageTitle')
+    // this.pageTitle = this._pageTitleService.getPageTitle();
   }
 
   // Takes optional mode parameter
