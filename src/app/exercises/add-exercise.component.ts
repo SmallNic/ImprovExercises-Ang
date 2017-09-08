@@ -15,6 +15,7 @@ export class AddExerciseComponent implements OnInit {
   exercise:IExercise = {id: null, "warmup": false, "name": "", "description": ""};
   lastAddedExercise:IExercise;
   errorMessage:string;
+  items: ["Relationship","Physicality"]
 
   constructor(
     private _exerciseService: ExerciseService,
@@ -38,7 +39,7 @@ export class AddExerciseComponent implements OnInit {
     exerciseOperation.subscribe(
       lastAddedExercise => {
         this.lastAddedExercise = lastAddedExercise;
-        this.exercise = {id:null, "warmup": false, "name": "", "description": ""};
+        // this.exercise = {id:null, "warmup": false, "name": "", "description": ""};
       },
       err => {
         // Log errors if any

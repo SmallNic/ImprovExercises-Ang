@@ -14,10 +14,15 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ExerciseListComponent } from './exercises/exercise-list.component';
 import { AddExerciseComponent } from './exercises/add-exercise.component';
+import { ExerciseDetailComponent } from './exercises/exercise-detail.component'; // this is needed!
 
 // Services
 import { Angular2TokenService } from 'angular2-token';
 import { PageTitleService } from './services/page-title.service'
+
+// ng2 Tag
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { PageTitleService } from './services/page-title.service'
     LoginFormComponent,
     RegisterFormComponent,
     ExerciseListComponent,
-    AddExerciseComponent
+    AddExerciseComponent,
+    ExerciseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { PageTitleService } from './services/page-title.service'
     FormsModule,
     HttpModule,
     HttpClientModule,
-    MaterializeModule
+    MaterializeModule,
+    TagInputModule,
+    BrowserAnimationsModule
   ],
   providers: [ Angular2TokenService, PageTitleService ],
   bootstrap: [ AppComponent ]
