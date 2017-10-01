@@ -18,6 +18,29 @@
   padding: 5px 0px;
 }
 
-textarea:focus {
-  border: 1px solid #26a69a !important;
+label{
+  font-size:1.5em;
+}
+
+input#exercise_name,
+textarea#exercise_description {
+  border: 2px solid #9e9e9e !important;
+}
+
+input#exercise_name:focus,
+textarea#exercise_description:focus {
+  border: 2px solid #26a69a !important;
+}
+
+button#add-exercise{
+  font-size:1.5em;
+}
+
+
+@media screen and (max-width : 992px) {
+
+  button#add-exercise{
+    width:100%;
+  }
+
 }

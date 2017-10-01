@@ -1,21 +1,10 @@
-<table class="bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Warmup?</th>
-      <th>Tags</th>
-    </tr>
-  </thead>
+<div id="exercise-list">
 
-  <tbody>
-    <tr *ngFor='let exercise of exercises'>
-      <td><i class="material-icons delete-forever" (click)="deleteExercise(exercise.id)">delete_forever</i></td>
-      <td><a [routerLink]="['/exercises', exercise.id]">{{exercise.name}}</a></td>
-      <td>{{exercise.description}}</td>
-      <td>{{exercise.warmup}}</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="row" *ngFor='let exercise of exercises'>
+    <div class="col s12">
+      <div class="name"><a [routerLink]="['/exercises', exercise.id]">{{exercise.name}}</a></div>
+      <div class="description">{{exercise.description}}</div>
+    </div>
+  </div>
+
+</div>

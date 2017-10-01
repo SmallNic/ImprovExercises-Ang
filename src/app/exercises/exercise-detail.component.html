@@ -1,3 +1,21 @@
-<div *ngIf="exercise">
-{{exercise.name}}
+
+
+
+<div id="exercise-detail">
+
+  <div class="row" *ngIf="exercise">
+    <div class="col s12">
+      <div class="name">
+        {{exercise.name}}
+        <!-- <i class="material-icons delete-forever" (click)="deleteExercise(exercise.id)">delete_forever</i> -->
+      </div>
+      <div class="descriptions">{{exercise.description}}</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary btn-block red" id="delete-exercise" (click)="deleteExercise(exercise.id)">REMOVE</button>
+  </div>
+
+
 </div>

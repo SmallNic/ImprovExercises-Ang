@@ -6,7 +6,7 @@ import { PageTitleService } from '../services/page-title.service'
 
 @Component({
   templateUrl: './exercise-list.component.html',
-  styleUrls: ['./exercise-list.component.sass']
+  styleUrls: ['./exercise-list.component.scss']
 })
 
 export class ExerciseListComponent implements OnInit {
