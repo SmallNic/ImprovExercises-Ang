@@ -11,18 +11,30 @@
           <input id="exercise_name" type="text" class="validate" [(ngModel)]="exercise.name" name="name">
         </div>
       </div>
+      <!-- <div class="row">
+        <div class="col s12">
+          <input type="checkbox" class="filled-in" id="filled-in-box" name="warmup" [(ngModel)]="exercise.warmup">
+          <label for="filled-in-box">Warmup?</label>
+        </div>
+      </div> -->
       <div class="row">
         <div class="col s12">
           <label for="exercise_description">Exercise Description:</label>
           <textarea id="exercise_description" class="materialize-textarea" data-length="400" [(ngModel)]="exercise.description" name="description"></textarea>
         </div>
       </div>
+
+      <div class="margin-top-30"></div>
       <div class="row">
         <div class="col s12">
-          <input type="checkbox" class="filled-in" id="filled-in-box" name="warmup" [(ngModel)]="exercise.warmup">
-          <label for="filled-in-box">Warmup?</label>
+          <label for="tags">Add tags</label>
+          <tag-input [(ngModel)]="tags" [maxItems]="5" [clearOnBlur]="true" [blinkIfDupe]="true" [addOnPaste]="true" [separatorKeyCodes]="[13,32]" name="tags" id="tags">
+            <tag-input-dropdown [autocompleteItems]="defaults" >
+            </tag-input-dropdown>
+          </tag-input>
         </div>
       </div>
+
     </div>
     <button type="submit" class="btn btn-primary btn-block" id="add-exercise">Add</button>
   </div>

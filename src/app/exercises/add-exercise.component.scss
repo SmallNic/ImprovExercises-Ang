@@ -8,11 +8,6 @@
   margin-bottom: -87px;
 }
 
-
-.ng2-tag-input {
-    border-bottom: 0px !important;
-}
-
 #exercise_description{
   height:140px;
   padding: 5px 0px;
@@ -34,6 +29,20 @@ textarea#exercise_description:focus {
 
 button#add-exercise{
   font-size:1.5em;
+}
+
+.ng2-tag-input,
+.ng2-tag-input--focused{
+  border-bottom:0px !important;
+}
+
+
+tag-input input{
+  font-size: 1.25em;
+}
+
+.margin-top-30{
+  margin-top:30px;
 }
 
 

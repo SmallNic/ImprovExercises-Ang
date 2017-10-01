@@ -16,6 +16,7 @@ import { ExerciseService } from './exercises/exercise.service';
 })
 export class AppComponent {
   title = 'app works!';
+  pageTitle:string;
 
   constructor(private authToken: Angular2TokenService){
     this.authToken.init(environment.token_auth_config);

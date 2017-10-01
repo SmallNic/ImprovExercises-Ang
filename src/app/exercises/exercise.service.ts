@@ -29,13 +29,14 @@ export class ExerciseService{
       .catch(this.handleError);
   }
 
-  addExercise (body: Object): Observable<IExercise> {
-    console.log("body",body)
-    let bodyString = JSON.stringify(body); // Stringify payload
+  addExercise (exerciseData: Object, tagData: Object): Observable<IExercise> {
+    console.log("tagData",tagData)
+    let bodyString = JSON.stringify(exerciseData); // Stringify payload
     let headers    = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options    = new RequestOptions({ headers: headers }); // Create a request option
+    let exerciseWithTags = {exercise:exerciseData, tags:tagData};
 
-    return this._http.post(this._exerciseUrl, body) // ...using post request
+    return this._http.post(this._exerciseUrl, exerciseWithTags) // ...using post request
        .do((res:Response) => console.log("res:", res)) // ...and calling .json() on the response to return data
        .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
 }

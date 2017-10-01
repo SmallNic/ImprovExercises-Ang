@@ -3,6 +3,7 @@ import { IExercise } from './exercise';
 import { ExerciseService } from './exercise.service'
 import { Observable } from 'rxjs/Observable';
 import { PageTitleService } from '../services/page-title.service'
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-add-exercise',
@@ -13,9 +14,10 @@ import { PageTitleService } from '../services/page-title.service'
 export class AddExerciseComponent implements OnInit {
 
   exercise:IExercise = {id: null, "warmup": false, "name": "", "description": ""};
+  tags:any[] = [];
   lastAddedExercise:IExercise;
   errorMessage:string;
-  items: ["Relationship","Physicality"]
+  defaults: string[] = ["Relationship","Physicality","Emotions", "Warmup"];
 
   constructor(
     private _exerciseService: ExerciseService,
@@ -33,13 +35,13 @@ export class AddExerciseComponent implements OnInit {
     let exerciseOperation:Observable<IExercise>;
 
     // Create a new exercise
-    exerciseOperation = this._exerciseService.addExercise(this.exercise)
-
+    exerciseOperation = this._exerciseService.addExercise(this.exercise, this.tags)
     // Subscribe to observable
     exerciseOperation.subscribe(
       lastAddedExercise => {
         this.lastAddedExercise = lastAddedExercise;
-        // this.exercise = {id:null, "warmup": false, "name": "", "description": ""};
+        this.exercise = {id:null, "warmup": false, "name": "", "description": ""};
+        this.tags = [];
       },
       err => {
         // Log errors if any
