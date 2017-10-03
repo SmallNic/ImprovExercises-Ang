@@ -2,15 +2,44 @@
   font-size: 1.5em;
 }
 
-#exercise-detail .name{
-  margin-bottom:20px;
+.attribute{
+}
+
+.attribute.name{
+  text-align: center;
+  font-weight: 700;
+}
+
+.attribute.tags{
+  text-align: center;
+  font-size:.75em;
+}
+
+.attribute.descriptions{
+  margin:50px 0px;
+
+}
+
+
+tag-input{
+  display:inline-block;
+  font-style: italic;
+  border-bottom:0px !important;
 }
 
 @media screen and (max-width : 992px) {
 
+  .attribute.name h1{
+    font-size: 2em;
+  }
 
-  button#delete-exercise{
+  .attribute.tags{
+    font-size: .7em;
+  }
+
+  button{
     width:100%;
+    margin:10px 0px;
   }
 
 }

@@ -5,16 +5,21 @@
 
   <div class="row" *ngIf="exercise">
     <div class="col s12">
-      <div class="name">
-        {{exercise.name}}
-        <!-- <i class="material-icons delete-forever" (click)="deleteExercise(exercise.id)">delete_forever</i> -->
+      <div class="attribute name">
+        <h1>{{exercise.name}}</h1>
       </div>
-      <div class="descriptions">{{exercise.description}}</div>
+      <div class="attribute tags" *ngIf="exercise.tags.length > 0">
+        Tags: <tag-input [ngModel]="exercise.tags" [maxItems]="5" [removable]="false" [hideForm]="true" name="tags" id="tags"></tag-input>
+      </div>
+      <div class="attribute descriptions">
+        {{exercise.description}}
+      </div>
     </div>
   </div>
 
   <div class="form-group">
-    <button class="btn btn-primary btn-block red" id="delete-exercise" (click)="deleteExercise(exercise.id)">REMOVE</button>
+    <button class="btn btn-primary btn-block blue left" id="edit-exercise" >EDIT</button>
+    <button class="btn btn-primary btn-block red right" id="delete-exercise" (click)="deleteExercise(exercise.id)">REMOVE</button>
   </div>
 
 

@@ -23,7 +23,9 @@
 }
 
 p {
-  color:#9e9e9e;
+  // color:#9e9e9e;
+  // color:#d17070;
+  color: #FF5B15;
   text-align: center;
   font-size: 2em;
 }
@@ -56,11 +58,12 @@ p {
 
   p {
     font-size: 1.25em;
+    margin-bottom: 0px;
   }
 
   .homepage-options{
     width: 55%;
-    margin: 1.4em auto;
+    // margin: 1.4em auto;
   }
 
 }
