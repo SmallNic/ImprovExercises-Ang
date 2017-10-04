@@ -19,7 +19,7 @@ export class ExerciseService{
 
   getExercises(): Observable<IExercise[]>{
     return this._http.get<IExercise[]>(this._exerciseUrl)
-      // .do(data => console.log( 'All:' + JSON.stringify(data) ))
+      .do(data => console.log( 'All:' + JSON.stringify(data) ))
       .catch(this.handleError);
   }
 

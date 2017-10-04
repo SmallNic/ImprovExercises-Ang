@@ -2,8 +2,12 @@
 
   <div class="row" *ngFor='let exercise of exercises'>
     <div class="col s12">
-      <div class="name"><a [routerLink]="['/exercises', exercise.id]">{{exercise.name}}</a></div>
+      <div class="name">
+        <a [routerLink]="['/exercises', exercise.id]">{{exercise.name}}</a>
+        <tag-input [ngModel]="exercise.tags" [maxItems]="5" [removable]="false" [hideForm]="true" name="tags" id="tags"></tag-input>
+      </div>
       <div class="description">{{exercise.description}}</div>
+      <div class="border-bottom"></div>
     </div>
   </div>
 
