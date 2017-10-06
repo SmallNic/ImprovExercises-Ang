@@ -13,7 +13,7 @@ import { IExercise } from './exercise';
 
 export class ExerciseService{
 
-  private _exerciseUrl = 'http://localhost:3000/exercises'
+  private _exerciseUrl = 'https://safe-chamber-22160.herokuapp.com/exercises'
 
   constructor(private _http: HttpClient){ }
 
