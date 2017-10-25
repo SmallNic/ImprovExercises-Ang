@@ -30,7 +30,7 @@ app.use(express.static(__dirname + '/dist'));
 
 // Start the app by listening on the default Heroku protractor
 
-app.listen(prcoess.env.PORT || 8080);
+app.listen(process.env.PORT || 8080);
 
 
 // For all GET requests, send back index.html so that
