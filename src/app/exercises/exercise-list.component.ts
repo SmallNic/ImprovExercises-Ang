@@ -30,7 +30,7 @@ export class ExerciseListComponent implements OnInit {
         error => this.errorMessage = <any>error);
   }
 
-  deleteExercise(id:string) {
+  deleteExercise(id:number) {
     console.log("exercise id",id)
 
     let exerciseOperation:Observable<IExercise>;

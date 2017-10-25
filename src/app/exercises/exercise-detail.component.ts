@@ -19,6 +19,9 @@ export class ExerciseDetailComponent implements OnInit {
     private _router: Router,
     private _exerciseService: ExerciseService) { }
 
+
+
+
   ngOnInit() {
     const id = +this._route.snapshot.paramMap.get('id');
     this.getExercise(id);
@@ -30,7 +33,7 @@ export class ExerciseDetailComponent implements OnInit {
       error => this.errorMessage = <any>error)
   }
 
-  deleteExercise(id:string) {
+  deleteExercise(id:number) {
     console.log("exercise id",id)
 
     let exerciseOperation:Observable<IExercise>;

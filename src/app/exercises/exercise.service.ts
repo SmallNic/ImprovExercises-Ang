@@ -41,7 +41,7 @@ export class ExerciseService{
        .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
 }
 
-  removeExercise (id:string): Observable<IExercise> {
+  removeExercise (id:number): Observable<IExercise> {
     return this._http.delete(`${this._exerciseUrl}/${id}`) // ...using put request
       .do((res:Response) => console.log("res:", res)) // ...and calling .json() on the response to return data
       .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
