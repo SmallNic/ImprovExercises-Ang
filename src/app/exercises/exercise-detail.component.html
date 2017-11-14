@@ -5,14 +5,23 @@
 
   <div class="row" *ngIf="exercise">
     <div class="col s12">
-      <div class="attribute name">
+      <div class="name">
         <h1>{{exercise.name}}</h1>
       </div>
-      <div class="attribute tags" *ngIf="exercise.tags.length > 0">
+      <div class="tags" *ngIf="exercise.tags.length > 0">
         Tags: <tag-input [ngModel]="exercise.tags" [maxItems]="5" [removable]="false" [hideForm]="true" name="tags" id="tags"></tag-input>
       </div>
-      <div class="attribute descriptions">
-        {{exercise.description}}
+
+      <div class="descriptions">
+        <div class="title">Description</div>
+        <div *ngIf="exercise.description">{{exercise.description}}</div>
+        <div *ngIf="!exercise.description">n/a</div>
+      </div>
+
+      <div class="descriptions">
+        <div class="title">Purpose</div>
+        <div *ngIf="exercise.purpose">{{exercise.purpose}}</div>
+        <div *ngIf="!exercise.purpose">n/a</div>
       </div>
     </div>
   </div>

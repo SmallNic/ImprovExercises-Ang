@@ -5,17 +5,22 @@
 .attribute{
 }
 
-.attribute.name{
+.name{
   text-align: center;
   font-weight: 700;
 }
 
-.attribute.tags{
+.tags{
   text-align: center;
   font-size:.75em;
 }
 
-.attribute.descriptions{
+.title{
+  font-weight: 700;
+  font-style: italic;
+}
+
+.descriptions{
   margin:50px 0px;
 
 }

@@ -24,6 +24,13 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col s12">
+          <label for="exercise_purpose">Exercise Purpose:</label>
+          <textarea id="exercise_purpose" class="materialize-textarea" data-length="400" [(ngModel)]="exercise.purpose" name="purpose"></textarea>
+        </div>
+      </div>
+
       <div class="margin-top-30"></div>
       <div class="row">
         <div class="col s12">
@@ -34,6 +41,7 @@
           </tag-input>
         </div>
       </div>
+
 
     </div>
     <button type="submit" class="btn btn-primary btn-block" id="add-exercise">Add</button>

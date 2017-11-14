@@ -15,19 +15,71 @@ export class ExerciseListComponent implements OnInit {
   deletedExercise: IExercise;
 
   exercises: IExercise[] = [];
+  filteredExercises: IExercise[];
+
+  allTags: string[] = [];
+  uniqueTags: string[] = [];
+
+  _listFilter: string;
+
+  get listFilter(): string{
+    // console.log("getter")
+    return this._listFilter;
+  }
+
+  set listFilter(value:string){
+    // console.log("setter")
+    this._listFilter = value;
+    this.filteredExercises = this.listFilter ? this.performFilter(this.listFilter) : this.exercises;
+  }
+
+  tagFilter(value:string){
+    this.listFilter = value;
+  }
+
+  performFilter(filterBy:string): IExercise[] {
+    // console.log("performFilter", filterBy)
+    filterBy = filterBy.toLocaleLowerCase();
+    let filteredList = this.exercises.filter( (exercise: IExercise) =>
+      exercise.tags.some(this.containsTag(filterBy)));
+    // console.log("filteredList", filteredList)
+    return filteredList;
+  }
+
+  containsTag(filterBy) {
+    return function(element) {
+      return element.toLocaleLowerCase() == filterBy;
+    }
+  }
 
   constructor(
     private _exerciseService: ExerciseService,
     private _pageTitleService: PageTitleService ) {
-      // this._pageTitleService.setPageTitle("All Exercises");
       this._pageTitleService.setPageTitle('All Exercises');
   }
 
   ngOnInit():void {
     this._exerciseService.getExercises()
       .subscribe(
-        exercises => this.exercises = exercises,
+        exercises => {
+          this.exercises = exercises
+          this.filteredExercises = this.exercises;
+          this.getAllTags();
+          this.setUniqueTags();
+        },
         error => this.errorMessage = <any>error);
+  }
+
+  getAllTags(): void{
+    for (let exercise of this.exercises) {
+      for (let tag of exercise.tags){
+        this.allTags.push(tag.toLocaleLowerCase());
+      }
+    }
+  }
+
+  setUniqueTags(): void{
+    this.uniqueTags = this.allTags.filter((element, index, array) => element && array.indexOf(element) === index);
   }
 
   deleteExercise(id:number) {

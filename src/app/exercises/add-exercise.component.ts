@@ -13,7 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 
 export class AddExerciseComponent implements OnInit {
 
-  exercise:IExercise = {id: null, "warmup": false, "name": "", "description": "", "tags":[]};
+  exercise:IExercise = {id: null, "name": "", "description": "", "purpose":"", "tags":[]};
   tags:any[] = [];
   lastAddedExercise:IExercise;
   errorMessage:string;
@@ -40,7 +40,7 @@ export class AddExerciseComponent implements OnInit {
     exerciseOperation.subscribe(
       lastAddedExercise => {
         this.lastAddedExercise = lastAddedExercise;
-        this.exercise = {id:null, "warmup": false, "name": "", "description": "", "tags":[]};
+        this.exercise = {id:null, "name": "", "description": "", "purpose":"", "tags":[]};
         this.tags = [];
       },
       err => {

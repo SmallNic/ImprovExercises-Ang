@@ -17,9 +17,8 @@ export class ExerciseDetailComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _exerciseService: ExerciseService) { }
-
-
+    private _exerciseService: ExerciseService) {
+  }
 
 
   ngOnInit() {

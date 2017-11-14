@@ -1,6 +1,20 @@
 <div id="exercise-list">
 
-  <div class="row" *ngFor='let exercise of exercises'>
+  <div class="tag-cloud">
+
+    <div class="row">
+      <div class="col s12">
+        <!-- <div class="col-md-4">Search by tag:<input type="text" [(ngModel)]='listFilter'/></div> -->
+        <em>Filter by tags:</em><br>
+        <div (click)='tagFilter("")' class='filter-tag'><i class="fa fa-times" aria-hidden="true"></i> CLEAR</div>
+        <span (click)='tagFilter(tag)' class='filter-tag' *ngFor='let tag of uniqueTags'>{{tag}}</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row" *ngFor='let exercise of filteredExercises'>
     <div class="col s12">
       <div class="name">
         <a [routerLink]="['/exercises', exercise.id]">{{exercise.name}}</a>
