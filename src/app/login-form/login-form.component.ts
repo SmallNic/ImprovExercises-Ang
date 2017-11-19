@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -21,17 +22,20 @@ export class LoginFormComponent implements OnInit {
   // Inject Angular2TokenService into Login Component
   // Now we can use it on our log in form template
   // Use the signIn method when the form is submitted
-  constructor( private tokenAuthService:Angular2TokenService) { }
+  constructor(
+    private _tokenAuthService:Angular2TokenService,
+    private _userService:UserService) { }
 
   ngOnInit() {  }
 
   onSignInSubmit(){
 
-    this.tokenAuthService.signIn(this.signInUser).subscribe(
+    this._tokenAuthService.signIn(this.signInUser).subscribe(
 
       res => {
         if( res.status == 200 ){
           // Emit event on onFormResult output with payload containing result and notify parent components
+          this._userService.uid = res.json().data.id
           this.onFormResult.emit({ signedIn:true, res });
         }
       },

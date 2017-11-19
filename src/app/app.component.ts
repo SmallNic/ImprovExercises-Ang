@@ -7,12 +7,13 @@ import { Angular2TokenService } from 'angular2-token';
 import { environment } from '../environments/environment';
 
 import { ExerciseService } from './exercises/exercise.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [ExerciseService]
+  providers: [ExerciseService, UserService]
 })
 export class AppComponent {
   title = 'app works!';
