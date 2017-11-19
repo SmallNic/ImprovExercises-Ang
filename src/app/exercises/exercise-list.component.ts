@@ -62,6 +62,7 @@ export class ExerciseListComponent implements OnInit {
     this._exerciseService.getExercises()
       .subscribe(
         exercises => {
+          console.log("this.exercises", this.exercises)
           this.exercises = exercises
           this.filteredExercises = this.exercises;
           this.getAllTags();

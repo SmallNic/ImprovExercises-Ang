@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IExercise } from './exercise';
 import { ExerciseService } from './exercise.service'
 import { Observable } from 'rxjs/Observable';
 import { PageTitleService } from '../services/page-title.service'
+import { Angular2TokenService } from 'angular2-token';
 import 'rxjs/add/operator/debounceTime';
 
 @Component({
@@ -21,10 +23,14 @@ export class AddExerciseComponent implements OnInit {
 
   constructor(
     private _exerciseService: ExerciseService,
-    private _pageTitleService: PageTitleService) {
+    private _pageTitleService: PageTitleService,
+    private _router:Router,
+    public tokenAuthService:Angular2TokenService) {
       // this._pageTitleService.setPageTitle("Add Exercise");
       this._pageTitleService.setPageTitle("Add Exercise");
-
+      if (!this.tokenAuthService.userSignedIn()){
+        this._router.navigate(['/exercises']);
+      }
   }
 
   ngOnInit() {

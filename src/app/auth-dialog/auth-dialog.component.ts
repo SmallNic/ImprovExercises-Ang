@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -14,13 +15,15 @@ export class AuthDialogComponent implements OnInit {
   // Required by Materialize Dialog Directive. We'll emit events on it to open/close dialog
   modalActions = new EventEmitter<string|MaterializeAction>();
 
-  constructor() { }
+  constructor(
+    private _router:Router) { }
 
   //event handlers for onFormResult events emitted by login and register form components, if the the login/register was successful, close the dialog, otherwise display the error returned by our RoR server in an alert window:
 
   onLoginFormResult( e ){
     if ( e.signedIn ){
       this.closeDialog();
+      this._router.navigate(['/home']);
     }
     else {
       alert(e.err.json().errors[0]);
@@ -30,6 +33,7 @@ export class AuthDialogComponent implements OnInit {
   onRegisterFormResult( e ){
     if ( e.signedUp ){
       this.closeDialog();
+      this._router.navigate(['/home']);
     }
     else {
       alert(e.err.json().errors.full_messages[0]);

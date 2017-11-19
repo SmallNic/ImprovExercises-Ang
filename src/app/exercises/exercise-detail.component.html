@@ -14,19 +14,19 @@
 
       <div class="descriptions">
         <div class="title">Description</div>
-        <div *ngIf="exercise.description">{{exercise.description}}</div>
+        <div *ngIf="exercise.description" class="pre">{{exercise.description}}</div>
         <div *ngIf="!exercise.description">n/a</div>
       </div>
 
       <div class="descriptions">
         <div class="title">Purpose</div>
-        <div *ngIf="exercise.purpose">{{exercise.purpose}}</div>
+        <div *ngIf="exercise.purpose" class="pre">{{exercise.purpose}}</div>
         <div *ngIf="!exercise.purpose">n/a</div>
       </div>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" *ngIf="tokenAuthService.userSignedIn()">
     <button class="btn btn-primary btn-block blue left" id="edit-exercise" >EDIT</button>
     <button class="btn btn-primary btn-block red right" id="delete-exercise" (click)="deleteExercise(exercise.id)">REMOVE</button>
   </div>

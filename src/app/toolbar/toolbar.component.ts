@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { Angular2TokenService } from 'angular2-token';
+import { Router } from '@angular/router';
 import { PageTitleService } from '../services/page-title.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -23,7 +24,8 @@ export class ToolbarComponent implements OnInit {
   // We get the userSignedIn() method automatically now
   constructor(
     public tokenAuthService:Angular2TokenService,
-    private _pageTitleService:PageTitleService ) {
+    private _pageTitleService:PageTitleService,
+    private _router:Router) {
       this.subscription = this._pageTitleService.getPageTitle().subscribe(pageTitle => { this.pageTitle = pageTitle; });
      }
 
@@ -36,6 +38,17 @@ export class ToolbarComponent implements OnInit {
   presentAuthDialog(mode?: 'login' | 'register'){
     // openDialog is a method from AuthDialogComponent. Default mode is Login.
     this.authDialog.openDialog(mode);
+  }
+
+  logout(): void{
+    this.tokenAuthService.signOut().subscribe(
+      res =>    {
+        if (!this.tokenAuthService.userSignedIn()){
+          this._router.navigate(['/exercises']);
+        }
+      },
+      error =>  console.log(error)
+    );
   }
 
 }

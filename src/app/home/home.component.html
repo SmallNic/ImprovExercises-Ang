@@ -10,15 +10,15 @@
   <div class="homepage-options">
 
     <div class="row">
-      <div class="col s12 l4">
+      <div class="col s12 l6">
         <a class="link" [routerLink]="['/exercises']">See all exercises</a>
       </div>
-      <div class="col s12 l4">
+      <div class="col s12 l6" *ngIf="tokenAuthService.userSignedIn()">
         <a class="link" [routerLink]="['/add-exercise']">Add an exercise</a>
       </div>
-      <div class="col s12 l4">
+      <!-- <div class="col s12 l4">
         <a class="link" [routerLink]="['/add-exercise']">Search for an exercise</a>
-      </div>
+      </div> -->
     </div>
 
   </div>

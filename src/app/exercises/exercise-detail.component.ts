@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-
+import { Angular2TokenService } from 'angular2-token';
 import { ExerciseService } from './exercise.service';
 import { IExercise } from './exercise';
 
@@ -17,7 +17,8 @@ export class ExerciseDetailComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _exerciseService: ExerciseService) {
+    private _exerciseService: ExerciseService,
+    public tokenAuthService:Angular2TokenService) {
   }
 
 

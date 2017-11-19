@@ -2,10 +2,10 @@
 
   <div class="nav-wrapper blue">
     <ul class="left hide-on-med-and-down">
-      <li *ngIf="this.pageTitle == 'All Exercises'">
+      <li *ngIf="this.pageTitle == 'All Exercises' && tokenAuthService.userSignedIn()">
         <a [routerLink]="['/add-exercise']">Add Exercise</a>
       </li>
-      <li *ngIf="this.pageTitle == 'Add Exercise'">
+      <li *ngIf="this.pageTitle == 'Add Exercise' && tokenAuthService.userSignedIn()">
         <a [routerLink]="['/exercises']">All Exercises</a>
       </li>
     </ul>
@@ -22,7 +22,7 @@
         <a [routerLink]="['/profile']">Profile</a>
       </li>
       <li *ngIf="tokenAuthService.userSignedIn()">
-        <a (click)="tokenAuthService.signOut()">Logout</a>
+        <a (click)="logout()">Logout</a>
       </li>
     </ul>
     <ul class="side-nav" id="hamburger-menu">
@@ -36,7 +36,7 @@
         <a [routerLink]="['/profile']">Profile</a>
       </li>
       <li *ngIf="tokenAuthService.userSignedIn()">
-        <a (click)="tokenAuthService.signOut()">Logout</a>
+        <a (click)="logout()">Logout</a>
       </li>
       <li *ngIf="this.pageTitle == 'All Exercises'">
         <a [routerLink]="['/add-exercise']">Add Exercise</a>
